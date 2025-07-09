@@ -1,4 +1,5 @@
-/*
+/
+
 * Copyright (c) 2020 The ZMK Contributors
 *
 * SPDX-License-Identifier: MIT
@@ -43,17 +44,17 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        qwerty {
             display-name = "QWERTY";
             bindings = <
-                &kp TAB   &kp Q       &kp W       &kp E       &kp R         &kp T         &kp Y &kp U          &kp I             &kp O         &kp P          &kp BSPC
-                &kp LCTRL &kp A       &kp S       &kp D       &kp F         &kp G         &kp H &kp J          &kp K             &kp L         &kp SEMI       &kp SQT
+                &kp ESC   &kp Q       &kp W       &kp E       &kp R         &kp T         &kp Y &kp U          &kp I             &kp O         &kp P          &kp BSPC
+                &kp SQT &kp A       &kp S       &kp D       &kp F         &kp G         &kp H &kp J          &kp K             &kp L         &kp SEMI       &kp SQT
                 &mo 3     &hml LGUI Z &hml LALT X &hml LCTL C &hml LSHIFT V &kp B         &kp N &hmr RSHFT M   &hmr RCTRL COMMA  &hmr RALT DOT &hmr RGUI FSLH &kp ESC
-                &kp ESC  &kp SPACE  &mt 1 TAB      &mo 2  &kp ENTER  &kp BSPC
+                                                     &kp ESC  &kp SPACE  &lt 1 TAB      &mo 2  &kp ENTER  &kp BSPC
             >;
         };
 
-        lower_layer {
+        number {
             display-name = "NUMBER";
             bindings = <
                 &trans  &kp N1           &kp N2          &kp N3       &kp N4       &kp N5                   &kp N6           &kp N7 &kp N8 &kp N9 &kp N0    &kp BSPC
@@ -64,25 +65,36 @@
             >;
         };
 
-        raise_layer {
+        symbol {
             display-name = "SYMBOL";
             bindings = <
                 &trans &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT     &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-                &trans &trans   &trans &trans   &trans   &caps_word    &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-                &trans &trans   &trans &trans   &trans   &trans        &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
+                &trans &kp GRAVE   &trans &trans   &trans   &caps_word    &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+                &trans &kp T   &trans &trans   &trans   &trans        &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
 
-                &trans &trans  &kp SPACE   &kp RET   &trans    &kp RALT
+                                          &trans &trans  &kp SPACE   &kp RET   &trans    &kp RALT
             >;
         };
-        layer_3 {
+
+        fn {
             display-name = "Fn";
             bindings = <
                 &studio_unlock   &kp F1      &kp F2      &kp F3       &kp F4     &kp F5         &kp F6      &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
                 &trans           &trans      &mkp LCLK   &mkp MCLK    &mkp RCLK  &mkp MB4       &kp LEFT    &kp DOWN  &kp UP  &kp RIGHT   &kp PRINTSCREEN  &kp F12
                 &trans           &sys_reset  &trans      &bootloader  &trans     &mkp MB5       &trans      &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-
-                &trans      &trans      &trans                      &trans       &trans         &trans
+                                                     &trans      &trans      &trans                      &trans       &trans         &trans
             >;
         };
+
+        /* layer_4 { */
+        /*     display-name = "Espanol"; */
+        /*     bindings = < */
+        /*         &studio_unlock   &kp F1      &kp F2      &kp E       &kp F4     &kp F5         &kp F6      &kp F7     &kp F8       &kp F9      &kp F10          &kp F11 */
+        /*         &trans           &trans      &mkp LCLK   &mkp MCLK    &mkp RCLK  &mkp MB4       &kp LEFT    &kp DOWN  &kp UP  &kp RIGHT   &kp PRINTSCREEN  &kp F12 */
+        /*         &trans           &sys_reset  &trans      &bootloader  &trans     &mkp MB5       &trans      &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK */
+        /*                                              &trans      &trans      &trans                      &trans       &trans         &trans */
+        /*     >; */
+        /* }; */
+        /**/
     };
 };
